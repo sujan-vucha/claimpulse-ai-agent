@@ -1,0 +1,86 @@
+Total rows compared: 20
+
+============================================================
+
+ACCURACY BY FIELD
+----------------------------------------
+  claim_status                   12/20  (60%)
+  issue_type                     12/20  (60%)
+  object_part                    13/20  (65%)
+  severity                        9/20  (45%)
+  evidence_standard_met          14/20  (70%)
+  valid_image                    13/20  (65%)
+
+============================================================
+CLAIM_STATUS MISMATCHES
+----------------------------------------
+  [user_005] (car)
+    EXPECTED : contradicted
+    PREDICTED: supported
+    issue  exp=scratch  got=dent
+    part   exp=rear_bumper  got=rear_bumper
+
+  [user_006] (car)
+    EXPECTED : not_enough_information
+    PREDICTED: contradicted
+    issue  exp=unknown  got=none
+    part   exp=headlight  got=side_mirror
+
+  [user_020] (laptop)
+    EXPECTED : contradicted
+    PREDICTED: not_enough_information
+    issue  exp=none  got=unknown
+    part   exp=trackpad  got=unknown
+
+  [user_015] (package)
+    EXPECTED : supported
+    PREDICTED: not_enough_information
+    issue  exp=crushed_packaging  got=unknown
+    part   exp=package_corner  got=unknown
+
+  [user_030] (package)
+    EXPECTED : supported
+    PREDICTED: not_enough_information
+    issue  exp=torn_packaging  got=unknown
+    part   exp=seal  got=unknown
+
+  [user_031] (package)
+    EXPECTED : supported
+    PREDICTED: not_enough_information
+    issue  exp=water_damage  got=unknown
+    part   exp=package_side  got=unknown
+
+  [user_033] (package)
+    EXPECTED : contradicted
+    PREDICTED: not_enough_information
+    issue  exp=unknown  got=unknown
+    part   exp=unknown  got=unknown
+
+  [user_034] (package)
+    EXPECTED : contradicted
+    PREDICTED: not_enough_information
+    issue  exp=none  got=unknown
+    part   exp=seal  got=unknown
+
+  Total mismatches: 8/20
+
+============================================================
+FALLBACK ROW DETECTION (issue_type=unknown → Gemini failed)
+----------------------------------------
+  Rows with issue_type=unknown: 7/20  (35%)
+  NOTE: These rows hit 429/503 and used fallback values.
+  Re-run after quota resets for valid baseline.
+
+============================================================
+PREDICTED claim_status DISTRIBUTION
+----------------------------------------
+  supported                      11
+  not_enough_information         7
+  contradicted                   2
+
+============================================================
+EXPECTED claim_status DISTRIBUTION
+----------------------------------------
+  supported                      13
+  contradicted                   5
+  not_enough_information         2

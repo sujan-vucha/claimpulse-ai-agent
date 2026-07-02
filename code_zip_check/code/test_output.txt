@@ -1,0 +1,12 @@
+{
+  "visible_issue": "dent",
+  "object_part": "rear_bumper",
+  "severity": "high",
+  "quality_flags": [],
+  "supporting_image_ids": [
+    "img_1"
+  ],
+  "valid_image": true,
+  "visible_damage": true,
+  "reasoning": "The image clearly shows severe impact damage to the rear of the car. There is a large dent on the trunk lid and the rear bumper cover is missing, exposing a heavily bent and deformed bumper structure, confirming the user's claim of a dent in the rear bumper area."
+}

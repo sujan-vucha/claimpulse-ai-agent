@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "username": "adjuster@claimpulse.io",
+      "password_hash": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+      "role": "adjuster",
+      "full_name": "Senior Claims Adjudicator"
+    },
+    {
+      "username": "policyholder@claimpulse.io",
+      "password_hash": "$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW",
+      "role": "policyholder",
+      "full_name": "Alex Morgan"
+    },
+    {
+      "username": "sujan@gmail.com",
+      "password_hash": "$2b$12$58U4/sAI40VV6bcFBqy6Qea83R6u7IOj8LUjWoQ5Cz1wM8Y347Ccy",
+      "role": "policyholder",
+      "full_name": "sujan"
+    },
+    {
+      "username": "admin@example.com",
+      "password_hash": "$2b$12$1.4hW6c50z2/MPiQyCTyweCds0Gxh7yrtT1WZLXt2vCPUuWc0ZXNS",
+      "role": "adjuster",
+      "full_name": "admin"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "CP-CFECF9EE",
+      "submitted_by": "adjuster@claimpulse.io",
+      "timestamp": "2026-07-02T08:27:28.982072Z",
+      "claim_object": "car",
+      "user_claim": "someone broke windows when parked in car parking",
+      "image_paths": "/images/web_uploads/claim_beae5803.webp",
+      "processing_time_sec": 5.39,
+      "evidence_standard_met": true,
+      "evidence_standard_met_reason": "The submitted image is sufficient to evaluate the claim on the door.",
+      "risk_flags": [
+        "none"
+      ],
+      "issue_type": "broken_part",
+      "object_part": "door",
+      "claim_status": "supported",
+      "claim_status_justification": "The image clearly shows a shattered car window on the passenger side door. This directly supports the user's claim that someone broke the window while the car was parked.",
+      "supporting_image_ids": [
+        "claim_beae5803"
+      ],
+      "valid_image": true,
+      "severity": "medium",
+      "raw_gemini": {
+        "visible_issue": "broken_part",
+        "object_part": "door",
+        "severity": "medium",
+        "claimed_issue_matches": true,
+        "claimed_part_matches": true,
+        "claim_mismatch": false,
+        "quality_flags": [],
+        "supporting_image_ids": [
+          "claim_beae5803"
+        ],
+        "valid_image": true,
+        "visible_damage": true,
+        "reasoning": "The image clearly shows a shattered car window on the passenger side door. This directly supports the user's claim that someone broke the window while the car was parked."
+      }
+    },
+    {
+      "claim_id": "CP-C2D317E8",
+      "submitted_by": "sujan@gmail.com",
+      "timestamp": "2026-07-02T09:51:43.541092Z",
+      "claim_object": "car",
+      "user_claim": "car window broken",
+      "image_paths": "/images/web_uploads/claim_27395e03.webp",
+      "processing_time_sec": 6.02,
+      "evidence_standard_met": false,
+      "evidence_standard_met_reason": "Evidence standard not met due to: wrong_object_part, damage_not_visible. The claimed part (fender) could not be evaluated.",
+      "risk_flags": [
+        "wrong_object_part",
+        "damage_not_visible",
+        "claim_mismatch"
+      ],
+      "issue_type": "dent",
+      "object_part": "fender",
+      "claim_status": "contradicted",
+      "claim_status_justification": "The image shows a damaged fender and a flat tire on a car, but the car window is not visible in the frame. Therefore, the claim regarding a broken window cannot be verified and does not match the visible damage.",
+      "supporting_image_ids": [
+        "claim_27395e03"
+      ],
+      "valid_image": true,
+      "severity": "medium",
+      "raw_gemini": {
+        "visible_issue": "dent",
+        "object_part": "fender",
+        "severity": "medium",
+        "claimed_issue_matches": false,
+        "claimed_part_matches": false,
+        "claim_mismatch": true,
+        "quality_flags": [
+          "wrong_object_part",
+          "damage_not_visible",
+          "claim_mismatch"
+        ],
+        "supporting_image_ids": [
+          "claim_27395e03"
+        ],
+        "valid_image": true,
+        "visible_damage": true,
+        "reasoning": "The image shows a damaged fender and a flat tire on a car, but the car window is not visible in the frame. Therefore, the claim regarding a broken window cannot be verified and does not match the visible damage."
+      }
+    }
+  ]
+}

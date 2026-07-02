@@ -1,0 +1,167 @@
+============================================================
+CASE: case_001
+Object: car  |  Images: 1
+
+EXPECTED:
+  issue_type   : dent
+  object_part  : rear_bumper
+  severity     : medium
+  claim_status : supported
+
+PREDICTED (Gemini):
+Attempt 1 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Attempt 2 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Attempt 3 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+All 3 attempts failed. Last error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+{
+  "visible_issue": "unknown",
+  "object_part": "unknown",
+  "severity": "unknown",
+  "quality_flags": [],
+  "supporting_image_ids": [],
+  "valid_image": false,
+  "visible_damage": false,
+  "reasoning": "Analysis could not be completed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+}
+
+  Match → issue_type:✗  object_part:✗  severity:✗
+
+============================================================
+CASE: case_005
+Object: car  |  Images: 2
+
+EXPECTED:
+  issue_type   : scratch
+  object_part  : rear_bumper
+  severity     : low
+  claim_status : contradicted
+
+PREDICTED (Gemini):
+Attempt 1 — JSON parse error: Unterminated string starting at: line 4 column 15 (char 75)
+Attempt 2 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+Attempt 3 — JSON parse error: Unterminated string starting at: line 4 column 15 (char 77)
+All 3 attempts failed. Last error: Unterminated string starting at: line 4 column 15 (char 77)
+{
+  "visible_issue": "unknown",
+  "object_part": "unknown",
+  "severity": "unknown",
+  "quality_flags": [],
+  "supporting_image_ids": [],
+  "valid_image": false,
+  "visible_damage": false,
+  "reasoning": "Analysis could not be completed: Unterminated string starting at: line 4 column 15 (char 77)"
+}
+
+  Match → issue_type:✗  object_part:✗  severity:✗
+
+============================================================
+CASE: case_006
+Object: car  |  Images: 1
+
+EXPECTED:
+  issue_type   : unknown
+  object_part  : headlight
+  severity     : unknown
+  claim_status : not_enough_information
+
+PREDICTED (Gemini):
+Attempt 1 — Gemini API error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 57.290125096s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '57s'}]}}
+Attempt 2 — Gemini API error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 54.9681152s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '54s'}]}}
+{
+  "visible_issue": "none",
+  "object_part": "headlight",
+  "severity": "none",
+  "quality_flags": [
+    "low_light_or_glare",
+    "wrong_angle",
+    "damage_not_visible"
+  ],
+  "supporting_image_ids": [],
+  "valid_image": false,
+  "visible_damage": false,
+  "reasoning": "The image shows the side of the car with the front facing into strong sunlight, causing glare that obstructs the view of the headlight. Due to the angle and glare, it is not possible to confirm or deny a crack on the headlight."
+}
+
+  Match → issue_type:✗  object_part:✓  severity:✗
+
+============================================================
+CASE: case_008
+Object: car  |  Images: 1
+
+EXPECTED:
+  issue_type   : broken_part
+  object_part  : front_bumper
+  severity     : high
+  claim_status : contradicted
+
+PREDICTED (Gemini):
+Attempt 1 — Gemini API error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 42.223493787s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '42s'}]}}
+Attempt 2 — Gemini API error: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 5, model: gemini-2.5-flash\nPlease retry in 39.83620518s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerMinutePerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '5'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '39s'}]}}
+Attempt 3 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+All 3 attempts failed. Last error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+{
+  "visible_issue": "unknown",
+  "object_part": "unknown",
+  "severity": "unknown",
+  "quality_flags": [],
+  "supporting_image_ids": [],
+  "valid_image": false,
+  "visible_damage": false,
+  "reasoning": "Analysis could not be completed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+}
+
+  Match → issue_type:✗  object_part:✗  severity:✗
+
+============================================================
+CASE: case_009
+Object: laptop  |  Images: 1
+
+EXPECTED:
+  issue_type   : crack
+  object_part  : screen
+  severity     : medium
+  claim_status : supported
+
+PREDICTED (Gemini):
+Attempt 1 — Gemini API error: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+{
+  "visible_issue": "glass_shatter",
+  "object_part": "screen",
+  "severity": "high",
+  "quality_flags": [],
+  "supporting_image_ids": [
+    "img_1"
+  ],
+  "valid_image": true,
+  "visible_damage": true,
+  "reasoning": "The image clearly shows a laptop with its screen severely shattered, consistent with the customer's claim of a cracked display glass. The damage is extensive and directly visible on the screen."
+}
+
+  Match → issue_type:✗  object_part:✓  severity:✗
+
+============================================================
+CASE: case_010
+Object: laptop  |  Images: 2
+
+EXPECTED:
+  issue_type   : broken_part
+  object_part  : hinge
+  severity     : medium
+  claim_status : supported
+
+PREDICTED (Gemini):
+{
+  "visible_issue": "broken_part",
+  "object_part": "hinge",
+  "severity": "high",
+  "quality_flags": [],
+  "supporting_image_ids": [
+    "img_1"
+  ],
+  "valid_image": true,
+  "visible_damage": true,
+  "reasoning": "Image img_1 clearly shows a broken plastic component in the hinge area of the laptop, exposing the internal hinge mechanism. This directly supports the customer's claim of a broken hinge. Image img_2 shows the full laptop but does not clearly display the damage."
+}
+
+  Match → issue_type:✓  object_part:✓  severity:✗
+

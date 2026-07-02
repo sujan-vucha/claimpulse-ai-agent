@@ -1,0 +1,14 @@
+# vision_prompt.txt
+# Placeholder — full prompt will be written after Gemini integration is confirmed working.
+#
+# Variables available for rendering (use {variable_name}):
+#   {user_claim}        - the full chat transcript
+#   {claim_object}      - car | laptop | package
+#   {evidence_rules}    - relevant rows from evidence_requirements.csv
+#   {image_count}       - number of submitted images
+#
+# Expected JSON output fields from Gemini:
+#   issue_type, object_part, claim_status, claim_status_justification,
+#   supporting_image_ids, valid_image, severity,
+#   evidence_standard_met, evidence_standard_met_reason,
+#   risk_flags (image-level only)
