@@ -1,105 +1,133 @@
-# ClaimPulse: Autonomous AI Agentic Adjudication Suite 🛡️⚡
+# ClaimPulse 🛡️⚡
 
 <div align="center">
 
-### Enterprise AI Platform for Autonomous Insurance Claim Verification & Fraud Detection
+### Autonomous AI Agentic Adjudication Suite
 
-*Powered by Google Gemini Multimodal Vision • FastAPI • React • MongoDB*
+An AI-powered platform for autonomous insurance claim verification using multimodal computer vision, deterministic evidence validation, and explainable decision synthesis.
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![Gemini](https://img.shields.io/badge/Google-Gemini-orange)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-success)
+![License](https://img.shields.io/badge/License-Hackathon-red)
 
 </div>
 
 ---
 
-## 🌟 Executive Overview
+# Executive Overview
 
-Traditional insurance claim processing often involves manual inspection, delayed approvals, and subjective fraud assessment. **ClaimPulse** automates this workflow through an AI-powered agentic pipeline that analyzes claim images, validates evidence quality, evaluates user risk history, and generates an explainable adjudication decision in seconds.
+Traditional insurance claim processing is slow, manual, and prone to inconsistent decisions.
 
-The platform combines **multimodal computer vision**, **deterministic rule engines**, and **risk heuristics** to deliver instant, transparent, and audit-ready claim decisions.
+ClaimPulse automates the entire claim verification pipeline using AI.
 
----
+The platform combines:
 
-# 📸 Platform Preview
+- 📷 Google Gemini Multimodal Vision
+- 🧠 Deterministic Evidence Validation
+- 🚩 User Risk Analysis
+- 📋 Explainable AI Decision Engine
 
-## 🔐 Intelligent Login Portal
+Every submitted claim receives an instant verdict:
 
-<p align="center">
-  <img src="assets/login.png" alt="Login Portal" width="900"/>
-</p>
+- ✅ Supported
+- ❌ Contradicted
+- ⚠️ Insufficient Information
 
-Secure authentication with separate workspaces for:
-
-* Policyholders
-* Claims Adjusters
-* JWT Authentication
-* Role-Based Access Control (RBAC)
+along with a fully explainable audit trail.
 
 ---
 
-## 📝 Policyholder Claim Intake
+# Platform Preview
+
+## Login Portal
 
 <p align="center">
-  <img src="assets/claiming.png" alt="Claim Submission" width="900"/>
+<img src="login.png" width="900">
 </p>
 
-Policyholders can:
+Supports two enterprise roles:
 
-* Select claim category
-* Upload damage images
-* Describe the incident
-* Submit claims instantly
-* Receive AI-generated decisions in real time
+- Policyholder
+- Claims Adjuster
+
+Features:
+
+- JWT Authentication
+- Role-Based Access Control
+- Secure Login
 
 ---
 
-## 📊 Claims Adjuster Dashboard
+## Claim Submission Portal
 
 <p align="center">
-  <img src="assets/dashboard.png" alt="Dashboard" width="900"/>
+<img src="claiming.png" width="900">
 </p>
 
-The enterprise dashboard provides:
+Policyholders can
 
-* Live claim monitoring
-* Verdict filtering
-* Search functionality
-* Batch processing
-* AI reasoning
-* Fraud indicators
+- Upload evidence
+- Describe incidents
+- Select asset category
+- Track AI decisions instantly
+
+Supported assets include
+
+- Vehicles
+- Electronics
+- Shipping Packages
 
 ---
 
-## 📄 Previous Claims
+## Claims Dashboard
 
 <p align="center">
-  <img src="assets/previous_claims.png" alt="Previous Claims" width="900"/>
+<img src="dashboard.png" width="900">
 </p>
 
-Policyholders can:
+Adjusters can
 
-* Track submitted claims
-* View adjudication history
-* Download claim reports
-* Monitor decision status
+- View all submitted claims
+- Filter by status
+- Search claims
+- Review AI reasoning
+- Inspect uploaded evidence
+- Run batch evaluations
 
 ---
 
-# 🚨 Example Case — Fraudulent Claim
+## Previous Claims
 
 <p align="center">
-  <img src="assets/example1.png" alt="Contradicted Claim" width="850"/>
+<img src="previous_claims.png" width="900">
 </p>
 
-### User Claim
+Users can
 
-> "My vehicle suffered severe front bumper damage after a parking lot collision."
+- Review historical claims
+- Download reports
+- Track verdicts
 
-### AI Analysis
+---
 
-The multimodal vision agent observes:
+# Fraud Detection Example
 
-* No structural deformation
-* Only superficial dirt/wear
-* Claimed component mismatch
+<p align="center">
+<img src="example1.png" width="850">
+</p>
+
+### Claim
+
+> Vehicle suffered severe front bumper damage after a collision.
+
+### AI Observation
+
+- No structural deformation detected
+- Claimed component mismatch
+- Surface dirt only
 
 ### Verdict
 
@@ -107,29 +135,25 @@ The multimodal vision agent observes:
 CONTRADICTED
 ```
 
-Reason:
-
-The uploaded image does not support the reported damage.
+The submitted evidence does not support the reported damage.
 
 ---
 
-# ✅ Example Case — Genuine Claim
+# Genuine Claim Example
 
 <p align="center">
-  <img src="assets/trueClaiming.png" alt="Supported Claim" width="850"/>
+<img src="trueClaiming.png" width="850">
 </p>
 
-### User Claim
+### Claim
 
-> "Passenger side window was shattered due to vandalism."
+> Passenger side window shattered due to vandalism.
 
-### AI Analysis
+### AI Observation
 
-The AI verifies:
-
-* Visible shattered glass
-* Correct vehicle component
-* Damage severity consistent with user statement
+- Visible broken glass
+- Correct damage location
+- Medium–High severity
 
 ### Verdict
 
@@ -137,88 +161,87 @@ The AI verifies:
 SUPPORTED
 ```
 
-Evidence quality passes all validation checks.
+Evidence satisfies all verification rules.
 
 ---
 
-# 🧠 Agentic Workflow
+# System Architecture
 
+```text
+               User Submission
+          (Image + Claim Description)
+                     │
+                     ▼
+              FastAPI REST API
+                     │
+     ┌───────────────┼────────────────┐
+     ▼               ▼                ▼
+
+ Vision Agent   Evidence Engine   Risk Engine
+ (Gemini AI)     Rule Checking   User History
+
+     └───────────────┬────────────────┘
+                     ▼
+
+         Decision Synthesis Engine
+
+                     │
+                     ▼
+
+        Explainable AI Verdict
 ```
-                     Policyholder Submission
-                     (Image + Description)
-                               │
-                               ▼
-                  FastAPI REST Gateway
-                               │
- ┌─────────────────────────────┼──────────────────────────────┐
- │                             │                              │
- ▼                             ▼                              ▼
-Vision Agent            Evidence Engine              Risk Engine
-(Google Gemini)         Rule Validation            User History
- │                             │                              │
- └──────────────┬──────────────┴──────────────┬───────────────┘
-                ▼
-        Decision Synthesis Engine
-                │
-                ▼
-      Explainable AI Adjudication
-                │
-                ▼
- Supported • Contradicted • Insufficient Information
-```
 
 ---
 
-# 🚀 Key Features
+# Features
 
-* AI-powered image damage analysis
-* Google Gemini multimodal vision
-* Explainable AI reasoning
-* Fraud detection
-* Evidence validation
-* Deterministic decision engine
-* Risk profiling
-* JWT authentication
-* Role-Based Access Control
-* Batch CSV processing
-* MongoDB persistence
-* Local JSON fallback
-* Responsive React dashboard
-* REST APIs
-* Swagger documentation
+- AI Image Damage Analysis
+- Multimodal Vision
+- Explainable AI Decisions
+- Fraud Detection
+- JWT Authentication
+- RBAC
+- MongoDB Storage
+- Local JSON Backup
+- Batch CSV Evaluation
+- REST APIs
+- Swagger Documentation
+- Responsive React Dashboard
 
 ---
 
-# 🛠️ Technology Stack
+# Technology Stack
 
-| Layer          | Technologies                  |
-| -------------- | ----------------------------- |
-| AI             | Google Gemini 3.1 Flash Lite  |
-| Backend        | FastAPI, Python 3.11, Uvicorn |
-| Frontend       | React 18, Vite, Axios         |
-| Database       | MongoDB, PyMongo              |
-| Authentication | JWT, Passlib Bcrypt           |
-| Storage        | MongoDB + Local JSON Backup   |
-| API Docs       | Swagger                       |
-| Styling        | Vanilla CSS, Glassmorphism    |
+| Layer | Technology |
+|-------|------------|
+| AI | Google Gemini 3.1 Flash Lite |
+| Backend | Python, FastAPI |
+| Frontend | React 18, Vite |
+| Database | MongoDB |
+| Authentication | JWT |
+| Security | Passlib Bcrypt |
+| Storage | MongoDB + Local JSON |
+| API | FastAPI |
 
 ---
 
-# 📂 Project Structure
+# Folder Structure
 
 ```text
 claimpulse-ai-agent/
 
 ├── api/
 ├── frontend/
-├── assets/
-│   ├── login.png
-│   ├── claiming.png
-│   ├── dashboard.png
-│   ├── previous_claims.png
-│   ├── example1.png
-│   └── trueClaiming.png
-├── sample_claims.csv
+├── dataset/
+├── evaluation/
+
+├── login.png
+├── claiming.png
+├── dashboard.png
+├── previous_claims.png
+├── example1.png
+├── trueClaiming.png
+
 ├── requirements.txt
 ├── README.md
 └── .env.example
@@ -226,7 +249,7 @@ claimpulse-ai-agent/
 
 ---
 
-# ⚙️ Installation
+# Installation
 
 ## Clone Repository
 
@@ -240,13 +263,11 @@ cd claimpulse-ai-agent
 
 ## Configure Environment
 
-Copy the example environment file.
-
 ```bash
 cp .env.example .env
 ```
 
-Update it with your credentials.
+Example
 
 ```env
 GEMINI_API_KEY=YOUR_API_KEY
@@ -258,17 +279,11 @@ MONGODB_URI=mongodb://localhost:27017/claimpulse
 
 ---
 
-# ▶️ Run Backend
-
-Install dependencies.
+# Run Backend
 
 ```bash
 pip install -r requirements.txt
-```
 
-Launch FastAPI.
-
-```bash
 python -m uvicorn api.main:app --reload
 ```
 
@@ -286,7 +301,7 @@ http://localhost:8000/docs
 
 ---
 
-# ▶️ Run Frontend
+# Run Frontend
 
 ```bash
 cd frontend
@@ -304,79 +319,76 @@ http://localhost:5173
 
 ---
 
-# 🔑 Demo Credentials
+# Demo Accounts
 
-| Role            | Email                                                           | Password |
-| --------------- | --------------------------------------------------------------- | -------- |
-| Claims Adjuster | [adjuster@claimpulse.io](mailto:adjuster@claimpulse.io)         | admin    |
-| Policyholder    | [policyholder@claimpulse.io](mailto:policyholder@claimpulse.io) | admin    |
-
-You may also register a new account using the Create Account option.
+| Role | Email | Password |
+|------|-------|----------|
+| Claims Adjuster | adjuster@claimpulse.io | admin |
+| Policyholder | policyholder@claimpulse.io | admin |
 
 ---
 
-# 📦 Batch Processing
+# Batch Processing
 
-Claims Adjusters can upload:
+Adjusters can upload
 
-* sample_claims.csv
-* claims.csv
+- sample_claims.csv
+- claims.csv
 
-The system automatically:
+The platform
 
-* Executes claims sequentially
-* Respects API rate limits
-* Stores results
-* Generates AI verdicts
-* Exports processed CSV files
+- Executes claims sequentially
+- Respects Gemini API rate limits
+- Stores results
+- Generates AI verdicts
+- Exports processed CSV files
 
 ---
 
-# 🔍 Decision Pipeline
+# Decision Pipeline
 
-Each claim undergoes the following stages:
+Every claim passes through
 
-1. Image Analysis using Gemini Vision
-2. Evidence Quality Validation
+1. Image Analysis
+2. Evidence Validation
 3. Damage Localization
-4. Severity Estimation
-5. User Risk Evaluation
+4. Severity Detection
+5. Risk Analysis
 6. Decision Synthesis
-7. Explainable Verdict Generation
-8. Persistent Storage
+7. Explainable AI Verdict
+8. Storage
 
 ---
 
-# 📜 API Endpoints
+# REST API
 
-| Method | Endpoint  | Description          |
-| ------ | --------- | -------------------- |
-| POST   | /login    | User Login           |
-| POST   | /register | Create Account       |
-| POST   | /claim    | Submit Claim         |
-| GET    | /claims   | View Claims          |
-| GET    | /me       | User Profile         |
-| POST   | /batch    | Batch CSV Processing |
-
----
-
-# 💡 Future Improvements
-
-* OCR document verification
-* VIN validation
-* Geolocation verification
-* Video claim analysis
-* LLM-powered fraud explanation
-* Human-in-the-loop approval
-* Email notifications
-* Multi-language support
-* Cloud deployment
-* Analytics dashboard
+| Method | Endpoint |
+|---------|----------|
+| POST | /login |
+| POST | /register |
+| POST | /claim |
+| GET | /claims |
+| GET | /me |
+| POST | /batch |
 
 ---
 
-# 📄 License
+# Future Enhancements
 
-Developed for the **Google DeepMind × HackerRank Advanced Agentic Coding Hackathon (2026)**.
+- OCR Document Verification
+- VIN Verification
+- GPS Validation
+- Video Claims
+- Human Review Workflow
+- Cloud Deployment
+- Email Notifications
+- Mobile Application
+- Analytics Dashboard
 
-This project is intended for educational, research, and hackathon demonstration purposes.
+---
+
+# License
+
+Developed for the **Google DeepMind × HackerRank Advanced Agentic Coding Hackathon 2026**.
+
+This project is intended for educational and demonstration purposes.
